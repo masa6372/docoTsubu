@@ -52,6 +52,8 @@ public class Main extends HttpServlet {
 			PostMutterLogic postMutterLogic = new PostMutterLogic();
 			PostMutterLogic.execute(mutter, mutterList);
 			application.setAttribute("mutterList", mutterList);
+		}else {
+			request.setAttribute("errorMsg", "つぶやきが入力されていません");
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
